@@ -23,7 +23,6 @@ auto generate_prebuild() -> int {
     return 0;
 }
 
-// This program needs to be built through the b.ninja buildfile.
 auto main(int argc, char* argv[]) -> int {
     // 0. Gather arguments for build step
     if (argc != 2) {

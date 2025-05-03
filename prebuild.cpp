@@ -1,7 +1,6 @@
 #include "build.hpp"
 #include "ninja.hpp"
 
-// This program will be built by ./b
 auto main(int argc, char* argv[]) -> int {
     build::Graph self;
     self.addFlag("-Wall");
