@@ -2,7 +2,6 @@
 #include "build.hpp"
 #include "ninja.hpp"
 
-// This program will be built by self
 auto main(int argc, char* argv[]) -> int {
     if (argc != 2) {
         std::cerr << "Usage: " << argv[0] << " <target>\n";

@@ -1,10 +1,17 @@
 ninja_required_version = 1.3
 
-flags = -Wall -std=c++20 
+rule cxx
+    command = clang++ -Wall -std=c++20 -O2 -MMD -MF $out.d -c $in -o $out
+    depfile = $out.d
+    deps = gcc
+    description = [CXX] $out
 
-rule cmd
-  command = $cmd $flags
-  description = building $out
+rule link
+    command = clang++ $in -o $out
+    description = [LINK] $out
 
-build b: cmd bootstrap.cpp
-  cmd = clang++ bootstrap.cpp -o b
+build bootstrap.o: cxx bootstrap.cpp
+
+build b: link bootstrap.o
+
+default b

@@ -37,3 +37,6 @@ app
 prebuild.ninja
 build.ninja
 app.ninja
+
+b
+.ninja_*

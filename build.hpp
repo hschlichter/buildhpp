@@ -12,28 +12,28 @@ namespace build {
     class Flags {
         public:
             auto add(std::string f) -> void { 
-                flags_.push_back(std::move(f));
+                flags.push_back(std::move(f));
             }
 
             auto empty() const -> bool { 
-                return flags_.empty();
+                return flags.empty();
             }
 
             auto toString() const -> std::string {
                 std::ostringstream oss;
-                for (size_t i = 0; i < flags_.size(); ++i) {
+                for (size_t i = 0; i < flags.size(); ++i) {
                     if (i) { 
                         oss << ' ';
                     }
 
                     // no quoting here, assume user adds properly
-                    oss << flags_[i];
+                    oss << flags[i];
                 }
                 return oss.str();
             }
 
         private:
-            std::vector<std::string> flags_;
+            std::vector<std::string> flags;
     };
 
     class Target {
@@ -119,7 +119,7 @@ namespace build {
                 globalFlags.add(std::move(f));
             }
 
-            std::unordered_map<std::string,Rule> rules;
+            std::unordered_map<std::string, Rule> rules;
             Flags globalFlags;
     };
 
